@@ -23,6 +23,7 @@ public class NovaPropostaController {
 
         Proposta proposta = request.conversor();
         propostaRepository.save(proposta);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.created(uriComponentsBuilder.path("/proposta/{id}")
+                .buildAndExpand(proposta.getId()).toUri()).build();
     }
 }

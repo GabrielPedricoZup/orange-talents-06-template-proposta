@@ -33,4 +33,8 @@ public class Proposta {
     @Deprecated
     public Proposta() {
     }
+
+    public Long getId() {
+        return id;
+    }
 }

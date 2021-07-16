@@ -18,6 +18,7 @@ public class NovaPropostaRequest {
     private String documento;
     @Email
     @NotBlank
+    @NotExists(domainClass = Proposta.class,fieldName = "email",message = "Email informado já existe proposta ativa")
     private String email;
     @Positive
     @NotNull
@@ -32,4 +33,5 @@ public class NovaPropostaRequest {
     public Proposta conversor(){
         return new Proposta(this.documento,this.email,this.salario);
     }
+
 }
