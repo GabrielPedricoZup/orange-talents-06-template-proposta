@@ -40,14 +40,6 @@ public class ValidationErrorHandler {
 
     }
 
-    @ExceptionHandler(ResponseStatusException.class)
-    public FieldErrorOutput handleValidationError(ResponseStatusException exception) {
-
-        return new FieldErrorOutput("produto", "Esse produto não pertence a você ou não existe");
-
-    }
-
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
     public ValidationErrorsOutput handleValidationError(BindException exception) {
