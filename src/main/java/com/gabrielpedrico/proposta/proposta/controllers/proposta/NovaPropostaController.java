@@ -29,13 +29,9 @@ public class NovaPropostaController {
     public ResponseEntity<?> cadastrarProposta(@RequestBody @Valid NovaPropostaRequest request, UriComponentsBuilder uriComponentsBuilder){
 
         Proposta proposta = request.conversor();
-        System.out.println("Recebeu nova proposta"+proposta);
         propostaRepository.save(proposta);
-        System.out.println("Salvou a proposta:"+proposta);
         proposta.setaStatus(analise);
-        System.out.println("Foi na API externa e pegou o STATUS");
         propostaRepository.save(proposta);
-        System.out.println("Salvou a proposta agora com status");
         return ResponseEntity.created(uriComponentsBuilder.path("/proposta/{id}")
                 .buildAndExpand(proposta.getId()).toUri()).build();
     }
