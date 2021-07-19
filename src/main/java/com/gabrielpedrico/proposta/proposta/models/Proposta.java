@@ -33,6 +33,8 @@ public class Proposta {
     @Enumerated(EnumType.STRING)
     private StatusProposta status = StatusProposta.ELEGIVEL;
 
+    private String numeroCartao;
+
     public Proposta(String documento,String nome,String endereco,String email, BigDecimal salario) {
         this.documento = documento;
         this.nome = nome;
@@ -58,6 +60,10 @@ public class Proposta {
         }catch (NullPointerException e){
              e.printStackTrace();
         }
+    }
+
+    public void setaCartao(String cartao){
+        this.numeroCartao = cartao;
     }
 
 }
