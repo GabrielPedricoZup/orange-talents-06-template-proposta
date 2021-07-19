@@ -16,6 +16,10 @@ public class NovaPropostaRequest {
     @NotExists(domainClass = Proposta.class,fieldName = "documento",message = "Documento informado já existe proposta ativa")
     @NotBlank
     private String documento;
+    @NotBlank
+    private String nome;
+    @NotBlank
+    private String endereco;
     @Email
     @NotBlank
     @NotExists(domainClass = Proposta.class,fieldName = "email",message = "Email informado já existe proposta ativa")
@@ -24,14 +28,16 @@ public class NovaPropostaRequest {
     @NotNull
     private BigDecimal salario;
 
-    public NovaPropostaRequest(String documento, String email, BigDecimal salario) {
+    public NovaPropostaRequest(String documento,String nome,String endereco, String email, BigDecimal salario) {
         this.documento = documento;
+        this.nome = nome;
+        this.endereco = endereco;
         this.email = email;
         this.salario = salario;
     }
 
     public Proposta conversor(){
-        return new Proposta(this.documento,this.email,this.salario);
+        return new Proposta(this.documento,this.nome,this.endereco,this.email,this.salario);
     }
 
 }
