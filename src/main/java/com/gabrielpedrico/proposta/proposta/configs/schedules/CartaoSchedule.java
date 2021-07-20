@@ -27,7 +27,7 @@ public class CartaoSchedule {
     @Autowired
     AssociaCartao associaCartao;
 
-    @Scheduled(fixedRate=60)
+    @Scheduled(fixedRate=60000)
     public void associaCartao() {
 
         List<Proposta> proposals = propostaRepository.

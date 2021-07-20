@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 @FeignClient(name = "associa",
-        url = "http://localhost:8888/api/cartoes")
+        url = "${cartoes.url}")
 public interface AssociaCartao {
 
     @GetMapping
