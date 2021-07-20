@@ -31,11 +31,11 @@ public class Proposta {
     @NotNull
     private BigDecimal salario;
     @Enumerated(EnumType.STRING)
-    private StatusProposta status = StatusProposta.ELEGIVEL;
+    private StatusProposta status;
 
     private String numeroCartao;
 
-    public Proposta(String documento,String nome,String endereco,String email, BigDecimal salario) {
+    public Proposta(String documento, String nome, String endereco, String email, BigDecimal salario) {
         this.documento = documento;
         this.nome = nome;
         this.endereco = endereco;
@@ -51,19 +51,24 @@ public class Proposta {
         return id;
     }
 
-    public void setaStatus(AnalisaCliente analise){
-        try {
+    public void setaStatus(AnalisaCliente analise) {
             SolicitacaoRequest solicitacaoRequest = new SolicitacaoRequest(this.documento, this.nome, this.id);
             NovaPropostaResponse response = analise.sendSolicitation(solicitacaoRequest);
-            StatusProposta status =response.getResultadoSolicitacao().conversorStatus();
+            StatusProposta status = response.getResultadoSolicitacao().conversorStatus();
             this.status = status;
-        }catch (NullPointerException e){
-             e.printStackTrace();
-        }
+
     }
 
-    public void setaCartao(String cartao){
+    public void setaCartao(String cartao) {
         this.numeroCartao = cartao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public StatusProposta getStatus() {
+        return status;
     }
 
 }

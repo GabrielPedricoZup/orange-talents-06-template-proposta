@@ -1,17 +1,18 @@
 package com.gabrielpedrico.proposta.proposta.dtos.proposta;
 
-public class SolicitacaoRequest {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    //proposal.getDocument(), proposal.getName(), proposal.getId()
+public class SolicitacaoRequest {
 
     private String documento;
     private String nome;
-    private String id;
+    @JsonProperty("idProposta")
+    private Long idProposta;
 
     public SolicitacaoRequest(String documento, String nome, Long id) {
         this.documento = documento;
         this.nome = nome;
-        this.id = id.toString();
+        this.idProposta = id;
     }
 
     public String getDocumento() {
@@ -22,7 +23,16 @@ public class SolicitacaoRequest {
         return nome;
     }
 
-    public String getId() {
-        return id;
+    public Long getId() {
+        return idProposta;
+    }
+
+    @Override
+    public String toString() {
+        return "SolicitacaoRequest{" +
+                "documento='" + documento + '\'' +
+                ", nome='" + nome + '\'' +
+                ", idProposta=" + idProposta +
+                '}';
     }
 }

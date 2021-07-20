@@ -40,4 +40,7 @@ public class NovaPropostaRequest {
         return new Proposta(this.documento,this.nome,this.endereco,this.email,this.salario);
     }
 
+    public String getDocumento() {
+        return documento;
+    }
 }
