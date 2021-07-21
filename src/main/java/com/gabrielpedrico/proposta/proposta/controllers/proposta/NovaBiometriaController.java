@@ -28,7 +28,7 @@ public class NovaBiometriaController {
 
     @PostMapping("/biometria/{id}")
     @Transactional
-    public ResponseEntity<?> save(@PathVariable String id, @Valid @RequestBody NovaBiometriaRequest request) {
+    public ResponseEntity<?> cadastraBiometria(@PathVariable String id, @Valid @RequestBody NovaBiometriaRequest request) {
         try {
            associaCartao.buscaCartaoById(id);
         } catch (ResponseStatusException e) {
@@ -36,10 +36,10 @@ public class NovaBiometriaController {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cartão não encontrado");
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não foi prossível processar os dados do Cartão.");
         }
-        Biometria saved = biometriaRepository.save(new Biometria(request.getImpressaoDigital(), id));
+        Biometria biometria = biometriaRepository.save(new Biometria(request.getImpressaoDigital(), id));
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}/")
-                .buildAndExpand(saved.getId())
+                .buildAndExpand(biometria.getId())
                 .toUri();
         return ResponseEntity.created(uri).build();
     }
