@@ -27,6 +27,10 @@ public class Biometria {
         this.numeroCartao = numeroCartao;
     }
 
+    @Deprecated
+    public Biometria(){
+    }
+
     public Long getId() {
         return id;
     }

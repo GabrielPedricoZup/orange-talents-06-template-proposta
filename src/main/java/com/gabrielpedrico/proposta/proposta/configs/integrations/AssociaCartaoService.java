@@ -8,4 +8,9 @@ public class AssociaCartaoService implements  AssociaCartao{
     public CartaoResponse buscaCartao(@RequestParam(required = true, name = "idProposta") String id) {
         return null;
     }
+
+    @Override
+    public CartaoResponse buscaCartaoById(String id) {
+        return null;
+    }
 }
