@@ -6,8 +6,15 @@ services:
       dockerfile: Dockerfile
     image: gabrielpedrico/proposta
     ports:
-      - 8080:8080
+      - 8083:8080
     restart: always
+    environment:
+      - DB_URL=jdbc:mysql://meu_db:3306/proposta
+      - DB_PASSWORD=1234
+      - DB_USERNAME=root
+      - ANALISE_URL=http://analise:9999
+      - CONTAS_URL=http://contas:8888
+      - KEYCLOAK_URL=http://keycloak:18080
     depends_on:
       - meu_db
 
