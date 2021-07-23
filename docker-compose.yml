@@ -14,7 +14,7 @@ services:
       - DB_USERNAME=root
       - ANALISE_URL=http://analise:9999
       - CONTAS_URL=http://contas:8888
-      - KEYCLOAK_URL=http://keycloak:18080
+      - KEYCLOAK_URL=http://keycloak:18080/
     depends_on:
       - meu_db
 

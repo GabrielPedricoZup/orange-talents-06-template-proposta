@@ -9,26 +9,26 @@ import java.time.LocalDate;
 public class NovoAvisoViagemRequest {
 
     @NotEmpty
-    private String destinoViagem;
+    private String destino;
 
     @Future
-    private LocalDate dataTermino;
+    private LocalDate validoAte;
 
-    public NovoAvisoViagemRequest(String destinoViagem, LocalDate dataTermino) {
-        this.destinoViagem = destinoViagem;
-        this.dataTermino = dataTermino;
+    public NovoAvisoViagemRequest(String destino, LocalDate validoAte) {
+        this.destino = destino;
+        this.validoAte = validoAte;
     }
 
     public String getDestinoViagem() {
-        return destinoViagem;
+        return destino;
     }
 
     public LocalDate getDataTermino() {
-        return dataTermino;
+        return validoAte;
     }
 
     public AvisoViagem conversor(String numeroCartao,String ipRequest,String userAgent) {
 
-        return new AvisoViagem(numeroCartao,this.destinoViagem,this.dataTermino,ipRequest,userAgent);
+        return new AvisoViagem(numeroCartao,this.destino,this.validoAte,ipRequest,userAgent);
     }
 }

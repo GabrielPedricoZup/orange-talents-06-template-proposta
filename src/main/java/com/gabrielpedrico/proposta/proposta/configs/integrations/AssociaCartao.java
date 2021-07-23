@@ -1,6 +1,7 @@
 package com.gabrielpedrico.proposta.proposta.configs.integrations;
 //http://localhost:8888/api/cartoes?idProposta=1
 
+import com.gabrielpedrico.proposta.proposta.dtos.avisoviagem.NovoAvisoViagemRequest;
 import com.gabrielpedrico.proposta.proposta.dtos.cartao.CartaoResponse;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.NovaPropostaResponse;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.SolicitacaoRequest;
@@ -22,5 +23,8 @@ public interface AssociaCartao {
 
     @GetMapping("/{id}")
     CartaoResponse buscaCartaoById(@PathVariable String id);
+
+    @PostMapping("/{id}/avisos")
+    void enviaAvisoViagem(@PathVariable String id, @RequestBody NovoAvisoViagemRequest request);
 
 }

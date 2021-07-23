@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.Optional;
 
+
 @RestController
 public class NovaPropostaController {
 

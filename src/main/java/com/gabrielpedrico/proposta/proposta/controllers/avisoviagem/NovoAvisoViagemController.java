@@ -27,6 +27,7 @@ public class NovoAvisoViagemController {
     public ResponseEntity<?> cadastraAviso(@PathVariable String id, @RequestBody @Valid NovoAvisoViagemRequest request, @RequestHeader(value = "User-Agent") String userAgent, HttpServletRequest httpRequest){
 
         CartaoResponse cartao = associaCartao.buscaCartaoById(id);
+        associaCartao.enviaAvisoViagem(id,request);
         AvisoViagem avisoViagem = request.conversor(id,httpRequest.getRemoteAddr(),userAgent);
         avisoViagemRepository.save(avisoViagem);
 
