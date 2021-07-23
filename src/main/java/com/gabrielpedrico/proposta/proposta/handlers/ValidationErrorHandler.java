@@ -2,6 +2,7 @@ package com.gabrielpedrico.proposta.proposta.handlers;
 
 import com.gabrielpedrico.proposta.proposta.handlers.outputs.FieldErrorOutput;
 import com.gabrielpedrico.proposta.proposta.handlers.outputs.ValidationErrorsOutput;
+import com.gabrielpedrico.proposta.proposta.models.Proposta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -63,9 +64,18 @@ public class ValidationErrorHandler {
 
         return validationErrors;
 
+
+
     }
 
     private String getErrorMessage(ObjectError error) {
         return messageSource.getMessage(error, LocaleContextHolder.getLocale());
+    }
+
+    private Proposta teste(Boolean v, Proposta proposta){
+        if(v) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "DataFim:");
+        }
+        return proposta;
     }
 }
