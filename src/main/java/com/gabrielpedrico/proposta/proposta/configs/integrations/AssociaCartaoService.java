@@ -2,6 +2,7 @@ package com.gabrielpedrico.proposta.proposta.configs.integrations;
 
 import com.gabrielpedrico.proposta.proposta.dtos.avisoviagem.NovoAvisoViagemRequest;
 import com.gabrielpedrico.proposta.proposta.dtos.cartao.CartaoResponse;
+import com.gabrielpedrico.proposta.proposta.dtos.carteirapaypal.NovaCarteiraRequest;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class AssociaCartaoService implements  AssociaCartao{

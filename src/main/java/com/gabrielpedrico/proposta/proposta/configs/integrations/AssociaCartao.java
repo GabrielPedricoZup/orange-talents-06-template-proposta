@@ -3,6 +3,7 @@ package com.gabrielpedrico.proposta.proposta.configs.integrations;
 
 import com.gabrielpedrico.proposta.proposta.dtos.avisoviagem.NovoAvisoViagemRequest;
 import com.gabrielpedrico.proposta.proposta.dtos.cartao.CartaoResponse;
+import com.gabrielpedrico.proposta.proposta.dtos.carteirapaypal.NovaCarteiraRequest;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.NovaPropostaResponse;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.SolicitacaoRequest;
 import com.gabrielpedrico.proposta.proposta.enums.StatusSolicitacao;
