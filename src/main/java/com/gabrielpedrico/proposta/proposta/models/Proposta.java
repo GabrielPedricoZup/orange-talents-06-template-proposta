@@ -5,6 +5,7 @@ import com.gabrielpedrico.proposta.proposta.dtos.proposta.NovaPropostaRequest;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.NovaPropostaResponse;
 import com.gabrielpedrico.proposta.proposta.dtos.proposta.SolicitacaoRequest;
 import com.gabrielpedrico.proposta.proposta.enums.StatusProposta;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -61,6 +62,10 @@ public class Proposta {
 
     public void setaCartao(String cartao) {
         this.numeroCartao = cartao;
+    }
+
+    private String encrypt(String document) {
+        return new BCryptPasswordEncoder().encode(document);
     }
 
     public String getNome() {
